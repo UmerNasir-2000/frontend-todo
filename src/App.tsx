@@ -1,8 +1,8 @@
 
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold text-red-500 underline">
+    <main className="bg-slate-950 w-full h-screen text-white">
       Hello world!
-    </h1>
+    </main>
   )
 }
