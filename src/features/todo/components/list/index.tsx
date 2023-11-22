@@ -19,7 +19,7 @@ const TodoList = () => {
   );
 
   return (
-    <section className="mx-auto bg-white text-slate-800 md:max-w-3xl max-w-md px-4 py-6 rounded-md shadow-md">
+    <section className="mx-auto bg-white text-slate-800 md:max-w-3xl max-w-md px-4 py-6 rounded-lg shadow-lg">
       <ul>
         {todos.map(todo => <TodoItem key={todo.id} {...todo} />)}
       </ul>
