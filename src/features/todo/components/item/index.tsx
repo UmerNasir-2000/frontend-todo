@@ -1,7 +1,8 @@
+import { Todo } from "../list"
 
-const TodoItem = () => {
+const TodoItem: React.FC<Todo> = (prop: Todo) => {
   return (
-    <li>TodoItem 1</li>
+    <li>{prop.title}</li>
   )
 }
 

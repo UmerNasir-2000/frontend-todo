@@ -1,13 +1,27 @@
-import TodoItem from "../item"
+import { useState } from "react";
+import TodoItem from "../item";
 
-const TodoList = () => {
-  return (
-    <section>
-        <ul>
-            <TodoItem />
-        </ul>
-    </section>
-  )
+export interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
 }
 
-export default TodoList
+const TodoList = () => {
+
+  const [todos] = useState<Todo[]>([
+    { id: 1, title: `Marry Noelle`, done: false },
+    { id: 2, title: `Marry Lena`, done: false },
+    { id: 3, title: `Marry Mia`, done: false },
+  ]);
+
+  return (
+    <section>
+      <ul>
+        {todos.map(todo => <TodoItem key={todo.id} {...todo} />)}
+      </ul>
+    </section>
+  );
+};
+
+export default TodoList;
