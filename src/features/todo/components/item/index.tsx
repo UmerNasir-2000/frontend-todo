@@ -1,8 +1,13 @@
+import { TrashIcon } from '@heroicons/react/24/solid'
 import { Todo } from "../list"
+
 
 const TodoItem: React.FC<Todo> = (prop: Todo) => {
   return (
-    <li>{prop.title}</li>
+    <article className="flex justify-between mb-2">
+        <li className="cursor-pointer">{prop.id}. {prop.title}</li>
+        <TrashIcon className="h-6 w-6 text-blue-500 cursor-pointer" />
+    </article>
   )
 }
 
