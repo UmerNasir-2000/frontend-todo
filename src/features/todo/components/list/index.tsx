@@ -11,9 +11,9 @@ export interface Todo {
 const TodoList = () => {
   const [state, dispatch] = useReducer(todoReducer, {
     todos: [
-      { id: 1, title: "Marry Noelle", done: false },
-      { id: 2, title: "Marry Lena", done: false },
-      { id: 3, title: "Marry Mia", done: false },
+      { id: 1, title: "Redesign", done: false },
+      { id: 2, title: "Rebuild", done: false },
+      { id: 3, title: "Reclaim", done: false },
     ],
   });
 
