@@ -5,7 +5,8 @@ interface TodoState {
 }
 
 export enum TodoActionType {
-    DELETE_TODO = 'DELETE_TODO'
+  DELETE_TODO = "DELETE_TODO",
+  UPDATE_TODO = "UPDATE_TODO",
 }
 
 interface DeleteTodoAction {
@@ -15,7 +16,14 @@ interface DeleteTodoAction {
   };
 }
 
-export type TodoAction = DeleteTodoAction;
+interface UpdateTodoAction {
+  type: TodoActionType.UPDATE_TODO;
+  payload: {
+    id: number;
+  };
+}
+
+export type TodoAction = DeleteTodoAction | UpdateTodoAction;
 
 const todoReducer = (state: TodoState, action: TodoAction) => {
   switch (action.type) {
@@ -23,6 +31,11 @@ const todoReducer = (state: TodoState, action: TodoAction) => {
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+      };
+    case TodoActionType.UPDATE_TODO:
+      return {
+        ...state,
+        todos: state.todos.map((todo) => todo.id === action.payload.id ? { ...todo, done: !todo.done } : todo),
       };
     default:
       throw new Error("Action not supported");

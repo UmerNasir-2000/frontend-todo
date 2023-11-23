@@ -20,7 +20,7 @@ const TodoItem: React.FC<TodoItemProps> = (prop: TodoItemProps) => {
           className="h-6 w-6 text-red-500 cursor-pointer"
           onClick={() =>
             prop.dispatch({
-              type: TodoActionType.DELETE_TODO,
+              type: TodoActionType.UPDATE_TODO,
               payload: { id: prop.id },
             })
           }
