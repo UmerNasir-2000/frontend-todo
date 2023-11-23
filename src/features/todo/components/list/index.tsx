@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import AddTodoForm from "../addForm";
 import TodoItem from "../item";
 import todoReducer from "../reducers";
 
@@ -18,13 +19,14 @@ const TodoList = () => {
   });
 
   return (
-    <section className="mx-auto bg-white text-slate-800 md:max-w-3xl max-w-sm rounded-lg shadow-lg">
-      <ul className="px-4 py-6">
-        {state.todos.map((todo) => (
-          <TodoItem key={todo.id} {...todo} dispatch={dispatch} />
-        ))}
-      </ul>
-    </section>
+    <>
+      <AddTodoForm dispatch={dispatch} />
+      <section className="mx-auto bg-white text-slate-800 md:max-w-3xl max-w-sm rounded-lg shadow-lg">
+        <ul className="px-4 py-6">
+          {state.todos.map((todo) => <TodoItem key={todo.id} {...todo} dispatch={dispatch} />)}
+        </ul>
+      </section>
+    </>
   );
 };
 
